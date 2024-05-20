@@ -11,14 +11,12 @@ exports.init = (app) => {
 
   io.on("connection", (socket) => {
     socket.on("join", (room) => {
-      socket.join(room); // Join a room based on the video ID or room name
+      socket.join(room);
     });
 
     socket.on("comment", (data) => {
-      // Get the room associated with the comment
       const room = data.room;
 
-      // Broadcast the comment to all clients in the room
       io.to(room).emit("comment", { comment: data.comment, user: data.user });
     });
 
@@ -26,7 +24,6 @@ exports.init = (app) => {
       console.log("A user disconnected");
     });
   });
-  // exports.server = server;
   server.listen(4000, () => {
     console.log("Server listening on port 4000");
   });

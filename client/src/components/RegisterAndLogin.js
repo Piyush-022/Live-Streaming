@@ -30,7 +30,9 @@ export const RegisterAndLogin = () => {
         setStreamKey(data.streamKey);
         navigate("/");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
   function changeTab() {
     if (tab === "Register") setTab("Login");

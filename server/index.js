@@ -34,7 +34,7 @@ app.use("/api/profile", auth, profile);
 app.use("/api/liveStreams", liveStreams);
 app.use("/api/streamInfo", streamInfo);
 
-app.use("/thumbnail",express.static(__dirname + "/uploads"));
+app.use("/thumbnail", express.static(__dirname + "/uploads"));
 init(app);
 
 //node mediaserver running

@@ -7,15 +7,16 @@ export const Stream = () => {
   const [title, setTitle] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
 
-  function saveTitle(e) {
+  async function saveTitle(e) {
     try {
       e.preventDefault();
       const formData = new FormData();
       formData.append("streamKey", streamKey);
       formData.append("image", selectedFile);
       formData.append("title", title);
-      const response = axios.post("/streamInfo", formData);
-      if (response.status === 200) alert("Stream Info and thumbnail Saved");
+      const response = await axios.post("/streamInfo", formData);
+      console.log(response);
+      if (response.status == 200) alert("Stream Info and thumbnail Saved");
     } catch (error) {
       alert(" some error occured please upload again");
     }
